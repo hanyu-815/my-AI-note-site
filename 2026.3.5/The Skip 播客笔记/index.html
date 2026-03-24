@@ -1,0 +1,1205 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="关于AI的一些有趣的事、人和思考">
+      
+      
+      
+      
+        <link rel="prev" href="../../2026.3.4/minimax%20%E8%B4%A2%E6%8A%A5/">
+      
+      
+        <link rel="next" href="../../2026.3.6/%E5%AE%9C%E5%AE%B6%E7%8C%B4%E5%AD%90%E8%90%A5%E9%94%80%E6%A1%88%E4%BE%8B/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>The Skip播客 - hanyu的笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#context200" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="hanyu的笔记" class="md-header__button md-logo" aria-label="hanyu的笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            hanyu的笔记
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Skip播客
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="hanyu的笔记" class="md-nav__button md-logo" aria-label="hanyu的笔记" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    hanyu的笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hanyu的笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    hanyu的笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2023.3.3/AI%E5%A5%97%E5%A3%B3%E5%BA%94%E7%94%A8%E5%85%AC%E5%8F%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI套壳应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    纳瓦尔播客
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    纳瓦尔播客
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.2.27/%E7%BA%B3%E7%93%A6%E5%B0%94%E6%92%AD%E5%AE%A2_2026.2.19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    播客笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.2.27/%E7%BA%B3%E7%93%A6%E5%B0%94%E6%92%AD%E5%AE%A2_%E5%B0%8F%E7%BA%A2%E4%B9%A6%E5%9B%BE%E6%96%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小红书图文
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.2.28/%E7%83%AD%E7%82%B9%E4%BA%8B%E4%BB%B6_Anthropic%E8%A2%AB%E5%88%97%E4%B8%BA%E4%BE%9B%E5%BA%94%E9%93%BE%E9%A3%8E%E9%99%A9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anthropic供应链风险
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.2/%E7%A4%BE%E5%AA%92%E8%90%A5%E9%94%80%E6%A1%88%E4%BE%8B_%E7%BA%BD%E7%BA%A6%E5%B8%82%E9%95%BF%E7%AB%9E%E9%80%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    纽约市长竞选营销
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.4/minimax%20%E8%B4%A2%E6%8A%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MiniMax财报
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Skip播客
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Skip播客
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context200" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context（200字以内）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#highlight100" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Highlight（100字以内）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transition20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transition（20字左右）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-points900" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key points（900字以内）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concluding300" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concluding（300字以内）
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.6/%E5%AE%9C%E5%AE%B6%E7%8C%B4%E5%AD%90%E8%90%A5%E9%94%80%E6%A1%88%E4%BE%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    宜家猴子营销
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.7/%E5%B9%B2%E8%B4%A7%E7%AC%94%E8%AE%B0_Anthropic%20%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anthropic报告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.9/%E6%B4%9E%E5%AF%9F%2B%E6%80%9D%E8%80%83%E7%AC%94%E8%AE%B0_%E4%BA%BA%E5%9D%87%E5%88%9B%E5%A7%8B%E4%BA%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人均创始人
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.10/%E5%85%A8%E7%90%83%E6%9C%80%E7%81%AB%E7%9A%84Top%20100%20AI%E4%BA%A7%E5%93%81%E6%A6%9C%E5%8D%95%E5%8F%91%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Top 100 AI产品
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.11/Typeless%20%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Typeless心得
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.12/Anthropic%20%E4%B8%80%E4%BA%BA%E5%A2%9E%E9%95%BF%E8%90%A5%E9%94%80%E5%9B%A2%E9%98%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anthropic营销团队
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.13/AI%20%E5%86%99%E4%B8%9C%E8%A5%BF%E7%9A%84AI%20%E5%91%B3%20%E7%A7%91%E5%AD%A6%E8%A7%A3%E9%87%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI味科学解释
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.16/AI%E5%85%AC%E5%8F%B8%E5%8A%9E%20Meetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI公司办Meetup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    谢赛宁访谈
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    谢赛宁访谈
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.17-3.24/%E6%92%AD%E5%AE%A2%E8%AE%B0%E5%BD%95%2B%E6%80%9D%E8%80%83%E7%AC%94%E8%AE%B0_part%201/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    思考笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2026.3.17-3.24/%E8%B0%A2%E8%B5%9B%E5%AE%81%20X%20%E5%BC%A0%E6%99%93%E7%8F%BA%20transcript%20%E5%AE%8C%E6%95%B4%E7%89%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    完整访谈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context200" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context（200字以内）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#highlight100" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Highlight（100字以内）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transition20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transition（20字左右）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-points900" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key points（900字以内）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concluding300" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concluding（300字以内）
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>The Skip播客</h1>
+
+<h3 id="context200">Context（200字以内）</h3>
+<p>Lenny 昨天转发了《The Skip》最新一期播客，强烈推荐想去人工智能、大模型公司的求职者（尤其没有AI背景），或者正在招聘的初创公司HR、创始人看看！</p>
+<p>嘉宾是三个刚刚求职成功，没有AI从业背景，但是分别入职了OpenAI、Netflix AI部门以及Abridge（一家AI医疗公司）。</p>
+<p>播客主持人Nikhyl Singhal 也很重磅，Meta 前产品副总裁，还在谷歌当过高管，做过三家初创公司的联创，现在专门开了一档播客给听众提供职业发展建议。</p>
+<h3 id="highlight100">Highlight（100字以内）</h3>
+<p>印象最深刻的，三个人一致都提到AI知识和相关从业经历，并没有想象中那么重要，更重要的是当下解决问题的能力。</p>
+<h3 id="transition20">Transition（20字左右）</h3>
+<p>下面是我总结的几个重点，以及个人的思考：</p>
+<h3 id="key-points900">Key points（900字以内）</h3>
+<p><strong>1. 在投简历之前，先搞清楚自己到底想要什么</strong></p>
+<p>这期播客里我印象最深的故事来自Julia。</p>
+<p>她在Pinterest待了九年，离开的时候其实不太清楚自己想要什么，所以一开始找的都是跟之前差不多的岗位，刚开始拿到了几个offer，但没一个觉得对。</p>
+<p>后来她干脆辞职，花了大概半年时间什么都不干（基本上就是逛Target、在家种花那种什么都不干），慢慢才想明白，自己想上手做产品，想去一个AI-first的公司从头学。</p>
+<p>想清楚之后，大概三个月就拿到了OpenAI的offer。整个过程前后将近一年，但她说最大的收获就是那段"看起来什么都没做"的时间。</p>
+<p>说实话这个故事让我挺感慨的。</p>
+<p>大部分人（包括我自己）焦虑的时候第一反应就是"赶紧动起来"，海投简历、疯狂社交，但有时候停下来想清楚方向才是最高效的。</p>
+<p><strong>2. 聚焦5-10家真正想去的公司</strong></p>
+<p>三个嘉宾的求职方式都不是"广撒网"，而是非常聚焦。</p>
+<p>Janie的方法最系统。她花了一周半的时间，跟大概50-60个人聊天，就为了筛出5-10家最想去的公司，然后全力以赴只攻这几家。</p>
+<p>怎么筛？</p>
+<p>她分享了自己的心得：跟行业里的朋友聊，看哪些公司被反复提到；看自己尊敬的VC在投什么；去听创始人公开的分享，判断这家公司在未来6-12个月有没有足够的护城河。</p>
+<p>还有一个我觉得特别关键的判断标准。</p>
+<p>这家公司是拿AI来"赋能"已有的业务，还是围绕AI有清晰的、原生的商业模式？</p>
+<p>这两种公司的发展潜力和你进去之后能学到的东西，差别非常大。</p>
+<p>这个问题光看JD是看不出来的，只能靠跟里面的人聊。</p>
+<p>所以主动联系人、约coffee chat很重要。</p>
+<p>负责招聘工作的Janie建议，直接给想聊的人发邮件或私信。但要给人家一个回复你的理由，因为可能有50-100个人在发同样的消息。成功率大概只有10%，十个人里有一个愿意聊就不错了。</p>
+<p>怎么提高成功率？</p>
+<p>她举了个例子。有人主动做了一个Abridge产品的原型发给她，这种消息她一定会多看两眼。</p>
+<p>现在有这么多AI工具，花点心思做点东西出来，比写一封漂亮的自荐信管用得多。</p>
+<p><strong>3. 面试规则变了：相比过往经历，现场怎么解题更重要</strong></p>
+<p>这可能是最颠覆传统认知的一点。</p>
+<p>以前面试准备，大家都在背STAR法则、打磨过往经历的故事。但现在AI公司的面试，尤其是产品岗，已经大幅转向"现场实战"。</p>
+<p>Julia说她在OpenAI的面试，90%以上都是live problem-solving——面试官直接扔一个他们正在思考的真实问题给你，然后看你怎么拆解。这个问题你现在怎么想？第一步做什么？怎么设计实验？</p>
+<p>这对非AI行业的求职者来说，其实是好消息。</p>
+<p>你不需要有光鲜的履历，只要能展示你真实的思考能力就行。</p>
+<p>但求职准备要完全改变，关键不是反复打磨简历，而是深入研究目标公司正在面对的问题。</p>
+<p>Janie的经历更夸张。</p>
+<p>她面试Abridge的时候有一个白板环节，主题是一个她完全不懂的医疗场景。</p>
+<p>她花了一个周末，用AI工具做deep research，在YouTube上翻创始人的演讲找到产品demo，然后自己做了原型，写了从产品到商业化的完整方案。两个小时之前她对这个领域一无所知。</p>
+<p>她现在自己也在招人，说了一句很实在的话：现在几乎所有人都能做原型，AI工具让这件事的门槛降到了30分钟。</p>
+<p>所以区分度不在于"你做没做"，而在于你做得有多深。有没有真正站在"如果我已经是这家公司的PM"的角度去思考。</p>
+<p><strong>4. 技能互补，可能比AI专业知识更重要</strong></p>
+<p>这一点可能是很多人（包括我）最需要听到的。</p>
+<p>三个嘉宾都没有AI从业背景，但都拿到了AI公司的核心岗位。</p>
+<p>Ben讲了一个很真实的心路历程。</p>
+<p>一开始他特别焦虑，觉得"我要去AI公司面试，得证明自己是AI专家才行"，甚至想把自己之前拿的专利搬出来当"创新能力"的证据。</p>
+<p>但后来发现，最好的面试对话，恰恰是他放下这种"包装"心态的时候。真诚地跟面试官讨论问题，展示自己的思考方式，该说"我不知道，但我好奇的是……"就大方说出来。</p>
+<p>Julia也觉得，OpenAI招她，不是因为她懂AI，而是因为她懂增长。</p>
+<p>那边已经有很多懂模型的人了，缺的是能把产品增长、用户留存这些事情想清楚的人。</p>
+<p>AI公司看重你，很可能不是因为你是AI专家，而是因为你有他们团队里缺少的那种能力。</p>
+<p><strong>5. 好的关系不是"人脉"，是长期经营出来的信任</strong></p>
+<p>最后一个点，也是我个人最有共鸣的。</p>
+<p>Ben进Netflix的故事特别有意思。</p>
+<p>七年前他面试过Netflix，最后没去成。但他跟当时的面试官很聊得来，两个人就一直保持联系。</p>
+<p>七年后就是通过这层关系，他进了Netflix现在这个岗位。</p>
+<p>这个故事表面上看是"运气好"，但主持人Nikhyl说了一句我很认同的话：这种运气是"高度被设计过的"（highly engineered）。</p>
+<p>你之前怎么对待遇到的人，会决定之后需要帮助时，有没有人愿意帮你。</p>
+<p>这让我想到，最近也有一个前同事主动找我，问要不要做一些part-time的项目，还帮我争取到了报酬。</p>
+<p>善用猎头也是一个办法，他们其实是最希望你尽快找到下一份工作的人，所以保持好联系说不定也有意外惊喜。</p>
+<p>好的关系一定是能带来正反馈的。</p>
+<p>你不需要刻意"经营人脉"，但需要真诚地对待你遇到的每一个人。</p>
+<h3 id="concluding300">Concluding（300字以内）</h3>
+<p>听完整期播客，最大的感受，AI时代的就业市场正在巨大的变化。</p>
+<p>在变化面前，求职成功的人，往往都呈现出相似的底色——知道自己想要什么，且具有高度主观能动性。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
