@@ -1,0 +1,45 @@
+site_name: hanyu的笔记
+docs_dir: /Users/jennie/Documents/Obsidian Vault/小红书图文
+site_description: 关于AI的一些有趣的事、人和思考
+
+theme:
+  name: material
+  language: zh
+  palette:
+    scheme: default
+    primary: white
+    accent: indigo
+  font:
+    text: Noto Sans SC
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+
+plugins:
+  - search:
+      lang: zh
+
+nav:
+  - 首页: index.md
+  - hanyu的笔记:
+    - AI套壳应用: 2023.3.3/AI套壳应用公司.md
+    - 纳瓦尔播客:
+      - 播客笔记: 2026.2.27/纳瓦尔播客_2026.2.19.md
+      - 小红书图文: 2026.2.27/纳瓦尔播客_小红书图文.md
+    - Anthropic供应链风险: 2026.2.28/热点事件_Anthropic被列为供应链风险.md
+    - 纽约市长竞选营销: 2026.3.2/社媒营销案例_纽约市长竞选.md
+    - MiniMax财报: 2026.3.4/minimax 财报.md
+    - The Skip播客: 2026.3.5/The Skip 播客笔记.md
+    - 宜家猴子营销: 2026.3.6/宜家猴子营销案例.md
+    - Anthropic报告: 2026.3.7/干货笔记_Anthropic 报告.md
+    - 人均创始人: 2026.3.9/洞察+思考笔记_人均创始人.md
+    - Top 100 AI产品: 2026.3.10/全球最火的Top 100 AI产品榜单发布.md
+    - Typeless心得: 2026.3.11/Typeless 使用心得.md
+    - Anthropic营销团队: 2026.3.12/Anthropic 一人增长营销团队.md
+    - AI味科学解释: 2026.3.13/AI 写东西的AI 味 科学解释.md
+    - AI公司办Meetup: 2026.3.16/AI公司办 Meetup.md
+    - 谢赛宁访谈:
+      - 思考笔记: 2026.3.17-3.24/播客记录+思考笔记_part 1.md
+      - 完整访谈: 2026.3.17-3.24/谢赛宁 X 张晓珺 transcript 完整版.md
